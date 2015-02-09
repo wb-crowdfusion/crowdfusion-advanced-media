@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Mixin: Crowd Fusion - Has Media Library</name>
+        <description>Given to elements that have an attached library of media images, documents, or videos typically then embedded into the contents of the node</description>
+        <elementmode>many</elementmode>
+    </info>
+    <tag_defs>
+        <tag quickadd="true" multiple="true" direction="out" fieldlike="true">
+            <title>Media Library</title>
+            <partial aspect="@media" role="#media-library" />
+        </tag>
+    </tag_defs>
+</aspect>

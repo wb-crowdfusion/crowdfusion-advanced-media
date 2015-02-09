@@ -1,0 +1,15 @@
+ul.thumbnail-list {
+    margin: 0;
+    padding: 0;
+}
+
+ul.thumbnail-list li {
+    float: left;
+    padding: 5px 5px 5px 0;
+}
+
+ul.thumbnail-list li img {
+    padding: 3px;
+    border: 1px solid #ddd;
+    margin-bottom: 1px;
+}

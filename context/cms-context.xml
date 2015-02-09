@@ -1,0 +1,50 @@
+<?xml version='1.0'?>
+<context
+    xmlns="http://www.crowdfusion.com/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/context http://www.crowdfusion.com/schema/crowdfusion-context-2.0.xsd">
+
+    <import>shared-context.xml</import>
+
+    <events>
+        <bind name="Dispatcher.preHandle" ref="FlashCookieHandler" method="processCookies" priority="1"/>
+        <bind name="cms-head" ref="MediaAssetHandler" method="generateAsset" priority="1"/>
+
+        <bind name="NodeCmsController.@mixin-media-library.add.pre"  ref="MediaLibraryBindHandler" method="loadMediaTagsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-primary-image.add.pre"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-load-image-tags.add.pre"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+
+        <bind name="NodeCmsController.@mixin-media-library.edit.load"  ref="MediaLibraryBindHandler" method="loadMediaTagsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-primary-image.edit.load"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-load-image-tags.edit.load"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+
+        <bind name="NodeCmsController.@mixin-media-library.edit.pre"  ref="MediaLibraryBindHandler" method="loadMediaTagsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-primary-image.edit.pre"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-load-image-tags.edit.pre"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+
+        <bind name="NodeCmsController.@mixin-media-library.duplicate.load"  ref="MediaLibraryBindHandler" method="loadMediaTagsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-primary-image.duplicate.load"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-load-image-tags.duplicate.load"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+
+        <bind name="NodeCmsController.@mixin-media-library.duplicate.pre"  ref="MediaLibraryBindHandler" method="loadMediaTagsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-primary-image.duplicate.pre"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+        <bind name="NodeCmsController.@mixin-load-image-tags.duplicate.pre"  ref="ImagesBindHandler" method="loadImageTagsThumbnailsCms" priority="1"/>
+
+        <bind name="NodeCmsController.@media.add.pre"  ref="MediaBindHandler" method="loadMediaTagsOriginalsCms" priority="1"/>
+        <bind name="NodeCmsController.@media.edit.load"  ref="MediaBindHandler" method="loadMediaTagsOriginalsCms" priority="1"/>
+        <bind name="NodeCmsController.@media.edit.pre"  ref="MediaBindHandler" method="loadMediaTagsOriginalsCms" priority="1"/>
+
+        <bind name="Node.add.post" ref="MediaBindHandler" method="processNonFieldlike" priority="1"/>
+        <bind name="NodeCmsController.add.validationException" ref="MediaBindHandler" method="loadNonFieldlike" priority="1"/>
+
+        <bind name="Node.@images.edit.pre" ref="ImagesEditHandler" method="preEdit" priority="1"/>
+
+        <bind name="Node.@images.get"  ref="ImagesBindHandler" method="loadImageThumbnails" priority="1"/>
+        <bind name="Node.@media.get"  ref="MediaBindHandler" method="loadMediaOriginals" priority="1"/>
+
+        <bind name="Node.@media.outtags.#original.bind"  ref="MediaBindHandler" method="bindTags" priority="1"/>
+
+        <bind name="Node.@images.outtags.#thumbnails.bind"  ref="ImagesBindHandler" method="bindTags" priority="1"/>
+
+    </events>
+</context>

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<xmodule
+        xmlns="http://www.crowdfusion.com/schema/xmod"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
+
+    <info xbuilder="MediaEditCmsBuilder"/>
+
+    <template src="display-image-details.cft"/>
+
+    <!-- fieldset id="file">
+        <title>File</title>
+        <group>
+            <tagwidget id="#original" width="quarter" class="FileTagWidget" quick-add-action="files-quick-add"
+                       file-mask="*.asf;*.asr;*.asx;*.avi;*.lsf;*.lsx;*.mov;*.movie;*.mpa;*.mpe;*.mpeg;*.mpg;*.mpv2;*.qt;*.mp4"/>
+        </group>
+    </fieldset -->
+    <fieldset>
+        <title>Thumbnails</title>
+        <group>
+            <tagwidget id="#poster-frame" width="quarter" class="MediaTagWidget"/>
+            <tagwidget id="#scrub-frames" width="quarter" class="MediaTagWidget"/>
+        </group>
+    </fieldset>
+</xmodule>

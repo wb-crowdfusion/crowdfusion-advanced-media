@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Mixin: Crowd Fusion - Load Image Tags</name>
+        <description>Given to elements that have image out tags but do NOT have mixin-primary-media or mixin-media-library. This allows the image tag widgets to load the image tag information in the CMS.</description>
+        <elementmode>many</elementmode>
+    </info>
+</aspect>

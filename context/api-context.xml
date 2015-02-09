@@ -1,0 +1,34 @@
+<?xml version='1.0'?>
+<context
+    xmlns="http://www.crowdfusion.com/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/context http://www.crowdfusion.com/schema/crowdfusion-context-2.0.xsd">
+
+    <import>shared-context.xml</import>
+
+    <events>
+        <bind name="Node.@images.edit.pre" ref="ImagesQuickAddHandler" method="processQuickAdd" priority="10"/>
+        <bind name="Node.@images.add.pre" ref="ImagesQuickAddHandler" method="processQuickAdd" priority="10"/>
+
+        <bind name="Node.@audio.edit.pre" ref="AudioQuickAddHandler" method="processQuickAdd" priority="10"/>
+        <bind name="Node.@audio.add.pre" ref="AudioQuickAddHandler" method="processQuickAdd" priority="10"/>
+
+        <bind name="Node.@documents.edit.pre" ref="DocumentsQuickAddHandler" method="processQuickAdd" priority="10"/>
+        <bind name="Node.@documents.add.pre" ref="DocumentsQuickAddHandler" method="processQuickAdd" priority="10"/>
+
+        <bind name="Node.@videos.edit.pre" ref="VideosQuickAddHandler" method="processQuickAdd" priority="10"/>
+        <bind name="Node.@videos.add.pre" ref="VideosQuickAddHandler" method="processQuickAdd" priority="10"/>
+
+        <bind name="Dispatcher.postHandle" ref="ImagesQuickAddHandler" method="postHandleQuickAdd" priority="10"/>
+        <bind name="Dispatcher.preHandle" ref="FlashCookieHandler" method="processCookies" priority="1"/>
+
+        <!-- loads the thumbnails whenever a media node is retrieved -->
+        <bind name="Node.@images.get"  ref="ImagesBindHandler" method="loadImageThumbnails" priority="1"/>
+        <bind name="Node.@media.get"  ref="MediaBindHandler" method="loadMediaOriginals" priority="1"/>
+        <bind name="Node.@files.get"  ref="FilesBindHandler" method="loadFile" priority="1"/>
+
+        <bind name="Node.@media.outtags.#original.bind"  ref="MediaBindHandler" method="bindTags" priority="1"/>
+        <bind name="Node.@images.outtags.#thumbnails.bind"  ref="ImagesBindHandler" method="bindTags" priority="1"/>
+
+    </events>
+</context>

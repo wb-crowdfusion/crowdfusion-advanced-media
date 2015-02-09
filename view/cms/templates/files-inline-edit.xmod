@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<xmodule
+        xmlns="http://www.crowdfusion.com/schema/xmod"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
+
+    <info xbuilder="EditCmsBuilder"/>
+
+    <fieldset id="preview">
+        <title>File Preview</title>
+        <group>
+            <display id="#url" width="full"/>
+        </group>
+        <group>
+            <display id="#width" width="quarter"/>
+            <display id="#height" width="quarter"/>
+            <display id="#mimetype" width="quarter"/>
+            <display id="#size" width="quarter"/>
+        </group>
+        <group>
+            <display id="#parent-element" width="quarter"/>
+        </group>
+    </fieldset>
+</xmodule>

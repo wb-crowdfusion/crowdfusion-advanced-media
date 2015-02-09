@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Mixin: Crowd Fusion - JSON Thumbnails</name>
+        <description>Adds JSON Thumbnails meta field which mirrors thumbnails nodes</description>
+        <elementmode>many</elementmode>
+    </info>
+
+    <meta_defs>
+        <meta id="#thumbnails-json">
+            <title>Thumbnails JSON</title>
+            <validation datatype="json"/>
+        </meta>
+    </meta_defs>
+</aspect>

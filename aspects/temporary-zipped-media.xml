@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Primary: Crowd Fusion Temporary Zipped Media</name>
+        <description>A temporary media object can be a document, image, video, or audio file that has been extracted from an archive.</description>
+        <elementmode>many</elementmode>
+    </info>
+
+    <tag_defs>
+        <tag fieldlike="true" quickadd="true" multiple="false" direction="out">
+            <title>Original</title>
+            <partial aspect="@files" role="#original" />
+        </tag>
+        <tag fieldlike="true" quickadd="true" multiple="true" direction="out">
+            <title>Thumbnails</title>
+            <partial aspect="@files" role="#thumbnails" />
+            <value_options mode="typein" multiple="false"/>
+        </tag>
+    </tag_defs>
+</aspect>

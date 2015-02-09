@@ -1,0 +1,46 @@
+<?xml version='1.0'?>
+<context
+    xmlns="http://www.crowdfusion.com/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/context http://www.crowdfusion.com/schema/crowdfusion-context-2.0.xsd">
+
+    <objects>
+        <object class="CropFilter" id="CropFilter" />
+        <object class="VisualCropFilter" id="VisualCropFilter" />
+        <object class="MatteFilter" id="MatteFilter" />
+        <object class="PhotoCreditFilter" id="PhotoCreditFilter" />
+        <object class="ResizeFilter" id="ResizeFilter" />
+        <object class="RotateFilter" id="RotateFilter" />
+        <object class="WatermarkFilter" id="WatermarkFilter" />
+        <object class="ThumbnailFilter" id="ThumbnailFilter" />
+
+        <object class="ImageFilterService" id="ImageFilterService">
+            <property name="filters">
+                <value key="crop" ref="CropFilter" />
+                <value key="visual-crop" ref="VisualCropFilter" />
+                <value key="matte" ref="MatteFilter" />
+                <value key="photo-credit" ref="PhotoCreditFilter" />
+                <value key="resize" ref="ResizeFilter" />
+                <value key="rotate" ref="RotateFilter" />
+                <value key="watermark" ref="WatermarkFilter" />
+                <value key="thumbnail" ref="ThumbnailFilter" />
+            </property>
+        </object>
+
+    </objects>
+
+    <events>
+
+        <bind name="Node.@media.delete.pre"  ref="MediaDeleteHandler" method="deleteMedia" priority="1"/>
+        <bind name="Node.@files.delete.pre"  ref="FilesDeleteHandler" method="deleteFile" priority="1"/>
+
+        <bind name="Node.@files.intags.remove"  ref="FilesDeleteHandler" method="deleteOrphanedFile" priority="1"/>
+
+        <bind name="Node.@mixin-json-thumbnails.outtags.#thumbnails.add" ref="JsonThumbnailsHandler" method="addTag" priority="10"/>
+        <bind name="Node.@mixin-json-thumbnails.outtags.#thumbnails.remove" ref="JsonThumbnailsHandler" method="removeTag" priority="10"/>
+
+        <bind name="Node.@images.add.post" ref="ImagesAddHandler" method="processAdd" priority="1"/>
+
+        <!-- TODO: PERMISSIONS -->
+    </events>
+</context>

@@ -1,0 +1,32 @@
+{% begin contents %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        document.uniqueTaggableRecord%INPUT_INDEX% = new NodeObject({"Slug":"","OutTags":[],"InTags":[],"Metas":[],"NodeRef":"%INPUT_ELEMENT%:","Element":{"Slug":"%INPUT_ELEMENT%"}});
+
+        document.uniqueTagFormManager%INPUT_INDEX% = new TagFormManager(
+            document.uniqueTaggableRecord%INPUT_INDEX%,
+            '#inline-quickadd-form-%INPUT_INDEX%'
+        );
+    });
+</script>
+<form id="inline-quickadd-form-%INPUT_INDEX%" class="upload-preview">
+    <ul>
+        <li id="page-title" class="input-full-width field">
+            <label for="Title">Title</label>
+            <input id="Title" type="text" value="%INPUT_TITLE%" name="Title" maxlength="255"/>
+        </li>
+        <li>
+            <label for="Slug">Slug</label>
+            <input id="Slug" type="text" value="%Slug%" name="Slug" class="readonly" readonly />
+        </li>
+        {% if template-exists?name=%INPUT_ELEMENT%-upload-edit.xmod %}
+            {% template %INPUT_ELEMENT%-upload-edit.xmod %}
+        {% endif %}
+    </ul>
+</form>
+<script type="text/javascript">
+    $(document).ready(function(){
+        document.uniqueTaggableRecord%INPUT_INDEX%.init();
+    });
+</script>
+{% end %}

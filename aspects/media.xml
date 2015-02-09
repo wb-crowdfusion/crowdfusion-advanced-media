@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Primary: Crowd Fusion Media</name>
+        <description>A media object can be a document, image, video, or audio file.</description>
+        <elementmode>many</elementmode>
+    </info>
+</aspect>

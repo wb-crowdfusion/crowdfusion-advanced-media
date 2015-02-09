@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Primary: Crowd Fusion Files</name>
+        <description>This provides storage details for physical files.</description>
+        <elementmode>one</elementmode>
+    </info>
+
+    <meta_defs>
+        <meta id="#parent-element">
+            <title>Parent Element</title>
+            <validation datatype="string" nullable="true" min="1" max="255"/>
+        </meta>
+        <meta id="#url">
+            <title>URL</title>
+            <validation datatype="string" nullable="false" min="1" max="255"/>
+        </meta>
+        <meta id="#mimetype">
+            <title>Mimetype</title>
+            <validation datatype="string" nullable="false" min="1" max="255"/>
+        </meta>
+        <meta id="#size">
+            <title>Size (bytes)</title>
+            <validation datatype="int" nullable="false"/>
+        </meta>
+        <meta id="#width">
+            <title>Width</title>
+            <validation datatype="int" nullable="true"/>
+        </meta>
+        <meta id="#height">
+            <title>Height</title>
+            <validation datatype="int" nullable="true"/>
+        </meta>
+    </meta_defs>
+</aspect>

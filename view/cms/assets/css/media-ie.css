@@ -1,0 +1,25 @@
+#media-add-widget input {
+    font-size: 12px;
+}
+
+#media-add-widget #media-add-url-input-clear {
+    top: 0;
+}
+
+.media-library-widget > ol > li .remove {
+    font-size: 12px;
+}
+
+.drop-overlay {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE8 */
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); /* IE7 */
+}
+
+.ui-dialog-overlay {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)"; /* IE8 */
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75); /* IE7 */
+}
+
+.ui-dialog-content div.progress div {
+    line-height: 12px;
+}

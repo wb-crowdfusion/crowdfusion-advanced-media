@@ -1,0 +1,56 @@
+{% setGlobal BodyClass %}list{% end %}
+{% setGlobal BodyID %}%INPUT_ASPECT%{% end %}
+
+{% begin noresults %}
+{% template _header.cft %}
+
+{% template node/list-filter.cft %}
+
+<script language="JavaScript" type="text/javascript">
+
+    BulkActionToolbar.registerAction( "delete", "Delete" );
+    BulkActionToolbar.registerAction( "publish", "Publish" );
+    BulkActionToolbar.registerAction( "makedraft", "Make Draft" );
+    BulkActionToolbar.registerAction( "rebuild", "Rebuild Missing Thumbnails", 1 );
+    BulkActionToolbar.registerAction( "rebuildforce", "Rebuild All Thumbnails", 1 );
+
+    $(document).ready( function() {
+        BulkActionToolbar.init();
+    });
+
+    $(document).ready( function() {
+        new MediaAddWidget({
+            QuickAddNonce: '{% filter nonce?action=media-quick-add %}',
+            QuickAddURL: "{% filter contexts-get-by-slug?Slug=api&Property=BaseURL %}/media/quick-add.json/",
+            QuickAddElement: '@%INPUT_ASPECT%',
+        });
+    });
+
+    List.updateOption('listDataTemplate', 'media/list-data.cft');
+
+</script>
+
+<div id="app-main">
+    <div id="app-main-header">
+        <h2>{% filter slugs-unsluggify?value=Data:INPUT_ASPECT %}</h2>
+    </div>
+    <div id="app-content">
+        <table class="data">
+            <tbody>
+                <tr>
+                    <th class="first"><span>&nbsp;</span></th>
+                    <th><a id="SortTitle" onclick="List.sort(this, 'Title', 'ASC'); return false;" href="" title="Sort ascending">Title</a></th>
+                    <th><a id="SortSlug" onclick="List.sort(this, 'Slug', 'ASC'); return false;" href="" title="Sort ascending">Slug</a></th>
+                    {% if elements-num-having-aspect?aspect=Data:INPUT_ASPECT > 1 %}
+                    <th><span>Element</span></th>
+                    {% endif %}
+                    <th><a id="SortActiveDate" class="desc" onclick="List.sort(this, 'ActiveDate', 'ASC'); return false;" href="" title="Sort ascending">Active&nbsp;Date</a></th>
+                </tr>
+                {% template media/list-data.cft?Elements=@%INPUT_ASPECT%&MaxRows=50  %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% template _footer.cft %}
+{% end %}

@@ -1,0 +1,23 @@
+{% begin contents %}
+
+{% if Data:#thumbnails-json || Data:#original %}
+<fieldset id="upload-media">
+    <h3>Media Details</h3>
+    <ul>
+        <li class="input-full-width clear field">
+            <div class="input">
+                {% filter media-show-original %}
+                <br />
+                {% if Data:#thumbnails-json %}
+                <p>
+                    <strong>Thumbnails:</strong>
+                    {% filter media-show-thumbnails?value=Data:#thumbnails-json %}
+                </p>
+                {% endif %}
+            </div>
+        </li>
+    </ul>
+</fieldset>
+{% endif %}
+
+{% end %}

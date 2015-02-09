@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Primary: Crowd Fusion Audio</name>
+        <description>A audio object contains an original audio file</description>
+        <elementmode>many</elementmode>
+    </info>
+
+    <tag_defs>
+        <tag fieldlike="true" quickadd="true" multiple="false" direction="out">
+            <title>Audio File</title>
+            <partial aspect="@files" role="#original" />
+        </tag>
+    </tag_defs>
+</aspect>

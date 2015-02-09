@@ -1,0 +1,17 @@
+<?xml version='1.0'?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    <info>
+        <name>Mixin: Crowd Fusion - Has Primary Media</name>
+        <description>Defines primary media aspect for migration from crowdfusion-media</description>
+        <elementmode>many</elementmode>
+    </info>
+    <tag_defs>
+        <tag quickadd="true" multiple="false" direction="out" fieldlike="true">
+            <title>Primary Media</title>
+            <partial aspect="@media" role="#primary-media" />
+        </tag>
+    </tag_defs>
+</aspect>

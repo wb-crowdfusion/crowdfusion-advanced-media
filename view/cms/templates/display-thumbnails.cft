@@ -1,0 +1,21 @@
+{% begin header %}
+<ul class="thumbnail-list">
+{% end %}
+{% begin contents %}
+{% /* filter display-show-vars */ %}
+<li>
+    <p>
+        <img src="%{% filter display?value=#thumbnails=%TagValue%.#url %}%" alt="%TagSlug%"/>
+    </p>
+    <p>
+        <strong>Size:</strong> %TagValue%
+    </p>
+</li>
+{% end %}
+{% begin footer %}
+</ul>
+{% end %}
+
+
+{% begin noresults %}
+{% end %}

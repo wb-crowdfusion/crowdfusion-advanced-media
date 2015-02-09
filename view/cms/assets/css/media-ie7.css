@@ -1,0 +1,21 @@
+.media-library-widget > ol > li > div.ajax-loader {
+	right: 7px;
+}
+
+.ui-dialog-titlebar-close {
+    float: none;
+    display: inline;
+    position: absolute;
+    right: 2px;
+    padding: 0 3px;
+}
+
+.media-library-widget  ol {
+    overflow-y: scroll;
+}
+
+.media-library-widget  ol  li {
+    margin: 0;
+    position: static;
+    top: 0;
+}

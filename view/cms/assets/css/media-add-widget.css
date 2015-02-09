@@ -1,0 +1,192 @@
+.ui-dialog-overlay {
+    background-color: black;
+    opacity: 0.75;
+}
+
+.ui-dialog {
+    background-color: white;
+    border: 1px solid #42A4B0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.ui-dialog-titlebar {
+    font-weight: bold;
+    padding: 5px;
+    background-color: #42A4B0;
+    color: white;
+}
+
+.ui-dialog-titlebar-close {
+    float: right;
+    margin-right: 5px;
+    color: white;
+}
+.ui-dialog-titlebar-close:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.ui-dialog-content {
+    padding: 10px 10px 0 10px;
+}
+
+.ui-dialog-content > div {
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.ui-dialog-content > div > img {
+    border: 1px solid #ddd;
+    padding: 3px;
+    margin: 10px;
+}
+
+.ui-dialog-buttonpane {
+    padding: 10px 0;
+    text-align: right;
+}
+
+.ui-dialog-buttonpane button {
+    margin-right: 10px;
+    border: 1px solid #BB0000;
+    background-color: #BB0000;
+    color: white;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    padding: 2px;
+    cursor: pointer;
+    font-size: 10px;
+    outline: none;
+}
+
+.ui-dialog-content th {
+    border-bottom: 1px solid #333;
+}
+
+.ui-dialog-content tr > * {
+    text-align: left;
+    padding: 5px;
+}
+
+.ui-dialog-content tr td {
+}
+
+.ui-dialog-content tr.even td {
+    background-color: #ddd;
+}
+
+.ui-dialog-content table {
+    padding: 10px;
+}
+
+.ui-dialog-content div.progress {
+    border: 1px solid #333;
+    height: 13px;
+    width: 100px;
+    padding: 1px;
+    background-color: white;
+}
+
+.ui-dialog-content div.progress div {
+    background-color: #333;
+    width: 0;
+    height: 100%;
+    color: #eee;
+    font-size: 10px;
+    text-align: right;
+    font-weight: bold;
+    line-height: 15px;
+}
+
+.ui-dialog-content div.progress div.complete {
+    background-color: #00cc33;
+}
+
+.ui-dialog-content div.pagination {
+    padding-bottom: 10px;
+}
+
+.ui-dialog-content div.pagination a {
+    font-size: 15px;
+    margin: 0 2px 0 5px;
+    line-height: 0;
+}
+
+.ui-dialog-content div.pagination em {
+    font-style: normal;
+    text-decoration: underline;
+}
+
+.ui-widget-overlay {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    background-color: black;
+    opacity: 0.75;
+}
+
+#media-add-widget {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+}
+
+#media-add-widget td > *, #media-add-widget td.or {
+    font-size: 10px;
+}
+
+#media-add-widget li {
+    float: left;
+}
+
+#media-add-widget td.or {
+    padding: 0 15px 0 15px;
+    font-weight: bold;
+    color: #ced6db;
+}
+
+#media-add-widget td.label {
+    padding: 0 3px 0 0;
+    font-weight: bold;
+}
+
+#media-add-widget form.file_upload {
+    margin: 0;
+}
+
+#media-add-widget input[type="text"] {
+    width: 250px;
+    height: 1em;
+    /*margin-top: 2px;*/
+    padding: 1px 20px 1px 2px;
+    font-size: 11px;
+}
+
+#media-add-widget a.upload {
+    font-size: 10px;
+    color: white;
+    border: 1px solid #4B606E;
+    background-color: #4B606E;
+    padding: 3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    margin: 0 0 0 3px;
+}
+
+#media-add-widget #media-add-url-input-clear {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    background: transparent url(../images/icons/textfield.png) no-repeat center center !important;
+    height: 2.2em;
+    right: 52px;
+    top: 3px;
+    width: 22px;
+    text-indent: -999em;
+    overflow: hidden;
+    z-index: 1000;
+}
