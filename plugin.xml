@@ -1,20 +1,25 @@
 <?xml version="1.0"?>
-<plugin xmlns="http://www.crowdfusion.com/schema/plugin" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.crowdfusion.com/schema/plugin http://www.crowdfusion.com/schema/crowdfusion-plugin-2.0.xsd">
-    <info>
-        <title>Crowd Fusion - Advanced Media</title>
-        <provider>Crowd Fusion Inc.</provider>
-        <description>Replaces crowdfusion-media plugin - Basic building block for media, including support for uploading and managing files
-        Media upload and management support for images, documents, video, and audio</description>
-        <priority>10</priority>
-        <version>1.7.4</version>
-        <license>http://www.opensource.org/licenses/bsd-license.php BSD License</license>
-        <dependencies/>
-        <cfversions>2.1.x</cfversions>
-        <homepage>http://crowdfusion.com/</homepage>
-    </info>
+<plugin
+  xmlns="http://www.crowdfusion.com/schema/plugin"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.crowdfusion.com/schema/plugin http://www.crowdfusion.com/schema/crowdfusion-plugin-2.0.xsd">
 
-    <config>
-        <![CDATA[
+  <info>
+    <title>Crowd Fusion - Advanced Media</title>
+    <provider>Crowd Fusion Inc.</provider>
+    <description>Replaces crowdfusion-media plugin - Basic building block for media, including support for uploading and managing files
+    Media upload and management support for images, documents, video, and audio</description>
+    <priority>10</priority>
+    <version>1.7.4</version>
+    <license>http://www.opensource.org/licenses/bsd-license.php BSD License</license>
+    <dependencies/>
+    <cfversions>2.1.x</cfversions>
+    <homepage>http://crowdfusion.com/</homepage>
+  </info>
+
+  <config>
+    <![CDATA[
+
 $properties['images.thumbnail.sizes'] = "100x100,75w,50w";
 //THIS PROPERTY CAN ALSO SPECIFY SIZES PER ELEMENT SLUG, FOR EXAMPLE:
 // $properties['media.thumbnail.sizes'] = array("image"=>"100x100,75w,50w","photo"=>"500x500,100w");
@@ -39,118 +44,119 @@ $properties['thumbnails.pathToImageMagickIdentify'] = 'identify';
 $properties['thumbnails.pathToImageMagickComposite'] = 'composite';
 
 $properties['images.make.jpegs.from.pngs'] = true; // array('image' => false, 'default' => true);
-        ]]>
-    </config>
 
-    <elements>
-        <element slug="file">
-            <info>
-                <name>File</name>
-                <description>@files element</description>
-                <default_order>ActiveDate DESC</default_order>
-                <allow_slug_slashes>false</allow_slug_slashes>
-                <base_url>file/</base_url>
-            </info>
-            <aspects>
-                <aspect slug="files"/>
-                <aspect slug="wb-mixin-guid-random"/>
-            </aspects>
-        </element>
-        <element slug="image">
-            <info>
-                <name>Image</name>
-                <description/>
-                <default_order>ActiveDate DESC</default_order>
-                <allow_slug_slashes>true</allow_slug_slashes>
-                <base_url>image/</base_url>
-            </info>
-            <aspects>
-                <aspect slug="media"/>
-                <aspect slug="images"/>
-                <aspect slug="mixin-json-thumbnails"/>
-                <aspect slug="wb-mixin-guid-random"/>
-            </aspects>
-        </element>
-        <element slug="video">
-            <info>
-                <name>Video</name>
-                <description/>
-                <default_order>ActiveDate DESC</default_order>
-                <allow_slug_slashes>true</allow_slug_slashes>
-                <base_url>video/</base_url>
-            </info>
-            <aspects>
-                <aspect slug="media"/>
-                <aspect slug="videos"/>
-                <aspect slug="mixin-load-image-tags"/>
-                <aspect slug="wb-mixin-guid-random"/>
-            </aspects>
-        </element>
-        <element slug="audio">
-            <info>
-                <name>Audio</name>
-                <description/>
-                <default_order>ActiveDate DESC</default_order>
-                <allow_slug_slashes>true</allow_slug_slashes>
-                <base_url>audio/</base_url>
-            </info>
-            <aspects>
-                <aspect slug="media"/>
-                <aspect slug="audio"/>
-                <aspect slug="wb-mixin-guid-random"/>
-            </aspects>
-        </element>
-        <element slug="document">
-            <info>
-                <name>Document</name>
-                <description/>
-                <default_order>ActiveDate DESC</default_order>
-                <allow_slug_slashes>true</allow_slug_slashes>
-                <base_url>document/</base_url>
-            </info>
-            <aspects>
-                <aspect slug="media"/>
-                <aspect slug="documents"/>
-                <aspect slug="wb-mixin-guid-random"/>
-            </aspects>
-        </element>
-        <element slug="temporary-zipped-media">
-            <info>
-                <name>Temporary Zipped Media</name>
-                <description/>
-                <default_order>ActiveDate DESC</default_order>
-                <allow_slug_slashes>true</allow_slug_slashes>
-                <base_url>temporary-zipped-media/</base_url>
-            </info>
-            <aspects>
-                <aspect slug="media"/>
-                <aspect slug="temporary-zipped-media"/>
-                <aspect slug="mixin-json-thumbnails"/>
-                <aspect slug="wb-mixin-guid-random"/>
-            </aspects>
-        </element>
-    </elements>
+    ]]>
+  </config>
 
-    <permissions>
-        <permission slug="files-list" title="List Files"/>
-        <permission slug="files-add" title="Add File"/>
-        <permission slug="files-edit" title="Edit File"/>
-        <permission slug="files-delete" title="Delete File"/>
-        <permission slug="media-list" title="List Media"/>
-        <permission slug="media-add" title="Add Media"/>
-        <permission slug="media-edit" title="Edit Media"/>
-        <permission slug="media-publish" title="Publish Media"/>
-        <permission slug="media-delete" title="Delete Media"/>
-    </permissions>
+  <elements>
+    <element slug="file">
+      <info>
+        <name>File</name>
+        <description>@files element</description>
+        <default_order>ActiveDate DESC</default_order>
+        <allow_slug_slashes>false</allow_slug_slashes>
+        <base_url>file/</base_url>
+      </info>
+      <aspects>
+        <aspect slug="files"/>
+        <aspect slug="wb-mixin-guid-random"/>
+      </aspects>
+    </element>
+    <element slug="image">
+      <info>
+        <name>Image</name>
+        <description/>
+        <default_order>ActiveDate DESC</default_order>
+        <allow_slug_slashes>true</allow_slug_slashes>
+        <base_url>image/</base_url>
+      </info>
+      <aspects>
+        <aspect slug="media"/>
+        <aspect slug="images"/>
+        <aspect slug="mixin-json-thumbnails"/>
+        <aspect slug="wb-mixin-guid-random"/>
+      </aspects>
+    </element>
+    <element slug="video">
+      <info>
+        <name>Video</name>
+        <description/>
+        <default_order>ActiveDate DESC</default_order>
+        <allow_slug_slashes>true</allow_slug_slashes>
+        <base_url>video/</base_url>
+      </info>
+      <aspects>
+        <aspect slug="media"/>
+        <aspect slug="videos"/>
+        <aspect slug="mixin-load-image-tags"/>
+        <aspect slug="wb-mixin-guid-random"/>
+      </aspects>
+    </element>
+    <element slug="audio">
+      <info>
+        <name>Audio</name>
+        <description/>
+        <default_order>ActiveDate DESC</default_order>
+        <allow_slug_slashes>true</allow_slug_slashes>
+        <base_url>audio/</base_url>
+      </info>
+      <aspects>
+        <aspect slug="media"/>
+        <aspect slug="audio"/>
+        <aspect slug="wb-mixin-guid-random"/>
+      </aspects>
+    </element>
+    <element slug="document">
+      <info>
+        <name>Document</name>
+        <description/>
+        <default_order>ActiveDate DESC</default_order>
+        <allow_slug_slashes>true</allow_slug_slashes>
+        <base_url>document/</base_url>
+      </info>
+      <aspects>
+        <aspect slug="media"/>
+        <aspect slug="documents"/>
+        <aspect slug="wb-mixin-guid-random"/>
+      </aspects>
+    </element>
+    <element slug="temporary-zipped-media">
+      <info>
+        <name>Temporary Zipped Media</name>
+        <description/>
+        <default_order>ActiveDate DESC</default_order>
+        <allow_slug_slashes>true</allow_slug_slashes>
+        <base_url>temporary-zipped-media/</base_url>
+      </info>
+      <aspects>
+        <aspect slug="media"/>
+        <aspect slug="temporary-zipped-media"/>
+        <aspect slug="mixin-json-thumbnails"/>
+        <aspect slug="wb-mixin-guid-random"/>
+      </aspects>
+    </element>
+  </elements>
 
-    <cmsnavitems>
-        <item label="Media" sort_order="50" uri="media/" permissions="media-list">
-            <item label="List Media" sort_order="10" uri="media/" permissions="media-list"/>
-            <!-- Let the client determine where these menu items go
-            <item label="List Galleries" sort_order="20" uri="galleries/"/>
-            <item label="Add Gallery" sort_order="21" uri="galleries/add/" create_add_menu="@galleries"/>
-            -->
-        </item>
-    </cmsnavitems>
+  <permissions>
+    <permission slug="files-list" title="List Files"/>
+    <permission slug="files-add" title="Add File"/>
+    <permission slug="files-edit" title="Edit File"/>
+    <permission slug="files-delete" title="Delete File"/>
+    <permission slug="media-list" title="List Media"/>
+    <permission slug="media-add" title="Add Media"/>
+    <permission slug="media-edit" title="Edit Media"/>
+    <permission slug="media-publish" title="Publish Media"/>
+    <permission slug="media-delete" title="Delete Media"/>
+  </permissions>
+
+  <cmsnavitems>
+    <item label="Media" sort_order="50" uri="media/" permissions="media-list">
+      <item label="List Media" sort_order="10" uri="media/" permissions="media-list"/>
+      <!-- Let the client determine where these menu items go
+      <item label="List Galleries" sort_order="20" uri="galleries/"/>
+      <item label="Add Gallery" sort_order="21" uri="galleries/add/" create_add_menu="@galleries"/>
+      -->
+    </item>
+  </cmsnavitems>
 
 </plugin>
