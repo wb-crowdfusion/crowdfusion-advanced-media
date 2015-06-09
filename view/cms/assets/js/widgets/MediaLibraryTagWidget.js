@@ -193,6 +193,63 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
             tolerance: 'pointer'
         });
     });
+    $('#contents-md-container > iframe[id^="epiceditor-"]').each(function(i,e) {
+        var iframe = $(e);
+        var overlay = me._createDropOverlay.apply(me, ['drop to add tag','release to add tag', e.id]);
+        overlay.droppable({
+            accept: '.media-draggable',
+            hoverClass: 'hover',
+            over: function(){
+                overlay.text(overlay.data('HoverMessage'));
+            },
+            out: function(){
+                overlay.text(overlay.data('ActiveMessage'));
+            },
+            activate: function(event, ui) {
+                if (iframe.length > 0) {
+                    me._activateDropOverlay.apply(me,[iframe, overlay]);
+                }
+            },
+            deactivate: function(event, ui) {
+                me._deactivateDropOverlay.apply(me, [overlay]);
+            },
+            drop: function(event, ui) {
+                var url = ui.draggable.data('URL');
+                var title = ui.draggable.data('Title');
+                if (url != null) {
+                    var value = '![' + title + '](' + url + ')';
+                    var editor = iframe.contents().find('iframe#epiceditor-editor-frame').contents().find('body');
+
+                    var doc = editor[0].ownerDocument;
+                    var win = doc.defaultView || doc.parentWindow;
+                    if (win.getSelection) {
+                      var selObj = win.getSelection();
+                      var myRange = selObj.getRangeAt(0);
+                      selObj.deleteFromDocument();
+                      myRange.insertNode(doc.createTextNode(value));
+                      selObj.addRange(myRange);
+                      selObj.collapseToEnd();
+                      editor.focus();
+                    } else if (doc.selection) {
+                      editor.focus();
+                      sel = doc.selection.createRange();
+                      sel.text = value;
+                      editor.focus();
+                    } else if (editor.selectionStart || editor.selectionStart == '0') {
+                      var startPos = this.selectionStart;
+                      var endPos = this.selectionEnd;
+                      var scrollTop = this.scrollTop;
+                      editor.innerHTML = editor.innerHTML.substring(0, startPos) + value + editor.innerHTML.substring(endPos, editor.innerHTML.length);
+                      editor.focus();
+                      editor.selectionStart = startPos + myValue.length;
+                      editor.selectionEnd = startPos + myValue.length;
+                      editor.scrollTop = scrollTop;
+                    }
+                }
+            },
+            tolerance: 'pointer'
+        });
+    });
 
     this._updateCount.apply(this);
 };
