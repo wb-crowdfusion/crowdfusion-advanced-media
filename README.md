@@ -1,6 +1,10 @@
 CHANGES
 -------
 
+1.7.5
+    * Added drag-and-drop file support for EpicEditor
+
+
 1.7.4
     * [ImagesCliController::loadNodeRefsWithMissingThumbs] Fix inefficient query for missing thumbs.  ticket #204
 
