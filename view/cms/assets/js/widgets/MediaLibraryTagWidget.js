@@ -222,12 +222,13 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
 
                     var doc = editor[0].ownerDocument;
                     var win = doc.defaultView || doc.parentWindow;
-                    if (win.getSelection) {
+                    if (win.getSelection()) {
+                      editor.focus();
                       var selObj = win.getSelection();
-                      var myRange = selObj.getRangeAt(0);
+                      var selRange = selObj.getRangeAt(0);
                       selObj.deleteFromDocument();
-                      myRange.insertNode(doc.createTextNode(value));
-                      selObj.addRange(myRange);
+                      selRange.insertNode(doc.createTextNode(value));
+                      selObj.addRange(selRange);
                       selObj.collapseToEnd();
                       editor.focus();
                     } else if (doc.selection) {
