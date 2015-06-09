@@ -193,7 +193,7 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
             tolerance: 'pointer'
         });
     });
-    $('#contents-md-container > iframe[id^="epiceditor-"]').each(function(i,e) {
+    $('iframe[id^="epiceditor-"]').each(function(i,e) {
         var iframe = $(e);
         var overlay = me._createDropOverlay.apply(me, ['drop to add tag','release to add tag', e.id]);
         overlay.droppable({
