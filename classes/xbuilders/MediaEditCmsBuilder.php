@@ -18,6 +18,12 @@
  */
 class MediaEditCmsBuilder extends EditCmsBuilder
 {
+    protected $markdownTagImage;
+    public function setMarkdownTagImage($value)
+    {
+        $this->markdownTagImage = $value;
+    }
+
     protected function _buildWidgetOptions($schemafield,$attributes) {
 
         // Non-file related tag widget defaults to media-quick-add
@@ -76,6 +82,10 @@ class MediaEditCmsBuilder extends EditCmsBuilder
                 $opt[] = "              AllowQuickAdd: true";
             else
                 $opt[] = "              AllowQuickAdd: false";
+        }
+
+        if ($this->markdownTagImage) {
+            $opt[] = sprintf("              MarkdownTagImage: '%s'", $this->markdownTagImage);
         }
 
         return $opt;

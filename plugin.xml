@@ -45,6 +45,8 @@ $properties['thumbnails.pathToImageMagickComposite'] = 'composite';
 
 $properties['images.make.jpegs.from.pngs'] = true; // array('image' => false, 'default' => true);
 
+$properties['markdown.tag.image'] = '<img src="{{src}}" alt="{{title}}" class="img-responsive" />';
+
     ]]>
   </config>
 

@@ -13,7 +13,7 @@ var MediaLibraryTagWidget = function(node,tagPartial,domID,options) {
     options = $.extend({
         ShowElementAndStatus : true,
         ShowThumbnailDragHandles : null,
-        ImgWrapClassName : 'img-wrapper'
+        MarkdownTagImage : null
     }, options || {});
 
     options.AllowMultiple = true;
@@ -218,7 +218,9 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                 var url = ui.draggable.data('URL');
                 var title = ui.draggable.data('Title');
                 if (url != null) {
-                    var value = '<div class="' + me.Options.ImgWrapClassName + '">![' + title + '](' + url + ')</div>';
+                    var value = me.Options.MarkdownTagImage
+                      ? me.Options.MarkdownTagImage.replace(/{{title}}/g, title).replace(/{{src}}/g, url)
+                      : '![' + title + '](' + url + ')';
                     var editor = iframe.contents().find('iframe#epiceditor-editor-frame').contents().find('body');
 
                     var doc = editor[0].ownerDocument;
