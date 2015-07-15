@@ -13,7 +13,7 @@ var MediaLibraryTagWidget = function(node,tagPartial,domID,options) {
     options = $.extend({
         ShowElementAndStatus : true,
         ShowThumbnailDragHandles : null,
-        ImgWrapClassName : 'img-responsive'
+        ImgWrapClassName : 'img-wrapper'
     }, options || {});
 
     options.AllowMultiple = true;
