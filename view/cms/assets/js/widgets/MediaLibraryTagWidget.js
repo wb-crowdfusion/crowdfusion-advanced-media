@@ -12,7 +12,8 @@ var MediaLibraryTagWidget = function(node,tagPartial,domID,options) {
     //INITIALIZE DEFAULT OPTIONS
     options = $.extend({
         ShowElementAndStatus : true,
-        ShowThumbnailDragHandles : null
+        ShowThumbnailDragHandles : null,
+        ImgWrapClassName : 'img-responsive'
     }, options || {});
 
     options.AllowMultiple = true;
@@ -217,7 +218,7 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                 var url = ui.draggable.data('URL');
                 var title = ui.draggable.data('Title');
                 if (url != null) {
-                    var value = '<div class="someclass">![' + title + '](' + url + ')</div>';
+                    var value = '<div class="' + me.Options.ImgWrapClassName + '">![' + title + '](' + url + ')</div>';
                     var editor = iframe.contents().find('iframe#epiceditor-editor-frame').contents().find('body');
 
                     var doc = editor[0].ownerDocument;
