@@ -217,7 +217,7 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                 var url = ui.draggable.data('URL');
                 var title = ui.draggable.data('Title');
                 if (url != null) {
-                    var value = '![' + title + '](' + url + ')';
+                    var value = '<div class="someclass">![' + title + '](' + url + ')</div>';
                     var editor = iframe.contents().find('iframe#epiceditor-editor-frame').contents().find('body');
 
                     var doc = editor[0].ownerDocument;
