@@ -220,7 +220,7 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                 var title = ui.draggable.data('Title');
                 if (url != null) {
                     var fileExt = url.split('.').pop();
-                    if ($.inArray(fileExt, ['gif', 'jpg', 'jpeg', 'png'])) {
+                    if ($.inArray(fileExt, ['gif', 'jpg', 'jpeg', 'png']) > -1) {
                       value = me.Options.DropImageToMarkdownTemplate
                         ? me.Options.DropImageToMarkdownTemplate.replace(/{{title}}/g, title).replace(/{{url}}/g, url)
                         : '![' + title + '](' + url + ')';
