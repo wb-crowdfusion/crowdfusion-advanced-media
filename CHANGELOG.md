@@ -2,7 +2,8 @@
 
 
 ## v1.7.6
-* issue #3: Added ability to make images responsive (by adding class to <img> tag)
+* issue #3: Added ability to make images responsive (by adding class to <img> tag).
+  Configurable property `$properties['media.library.dropImageToMarkdownTemplate'] = '<img src="{{url}}" alt="{{title}}" class="img-responsive"/>';` added.
 
 
 ## v1.7.5
