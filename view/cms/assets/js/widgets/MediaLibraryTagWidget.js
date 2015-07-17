@@ -12,7 +12,8 @@ var MediaLibraryTagWidget = function(node,tagPartial,domID,options) {
     //INITIALIZE DEFAULT OPTIONS
     options = $.extend({
         ShowElementAndStatus : true,
-        ShowThumbnailDragHandles : null
+        ShowThumbnailDragHandles : null,
+        DropImageToMarkdownTemplate : null
     }, options || {});
 
     options.AllowMultiple = true;
@@ -214,12 +215,20 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                 me._deactivateDropOverlay.apply(me, [overlay]);
             },
             drop: function(event, ui) {
+                var value;
                 var url = ui.draggable.data('URL');
                 var title = ui.draggable.data('Title');
                 if (url != null) {
-                    var value = '![' + title + '](' + url + ')';
-                    var editor = iframe.contents().find('iframe#epiceditor-editor-frame').contents().find('body');
+                    var fileExt = url.split('.').pop();
+                    if ($.inArray(fileExt, ['gif', 'jpg', 'jpeg', 'png']) > -1) {
+                      value = me.Options.DropImageToMarkdownTemplate
+                        ? me.Options.DropImageToMarkdownTemplate.replace(/{{title}}/g, title).replace(/{{url}}/g, url)
+                        : '![' + title + '](' + url + ')';
+                    } else {
+                      value = '[' + title + '](' + url + ')';
+                    }
 
+                    var editor = iframe.contents().find('iframe#epiceditor-editor-frame').contents().find('body');
                     var doc = editor[0].ownerDocument;
                     var win = doc.defaultView || doc.parentWindow;
                     if (win.getSelection()) {
@@ -233,7 +242,7 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                       editor.focus();
                     } else if (doc.selection) {
                       editor.focus();
-                      sel = doc.selection.createRange();
+                      var sel = doc.selection.createRange();
                       sel.text = value;
                       editor.focus();
                     } else if (editor.selectionStart || editor.selectionStart == '0') {
@@ -242,8 +251,8 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
                       var scrollTop = this.scrollTop;
                       editor.innerHTML = editor.innerHTML.substring(0, startPos) + value + editor.innerHTML.substring(endPos, editor.innerHTML.length);
                       editor.focus();
-                      editor.selectionStart = startPos + myValue.length;
-                      editor.selectionEnd = startPos + myValue.length;
+                      editor.selectionStart = startPos + value.length;
+                      editor.selectionEnd = startPos + value.length;
                       editor.scrollTop = scrollTop;
                     }
                 }

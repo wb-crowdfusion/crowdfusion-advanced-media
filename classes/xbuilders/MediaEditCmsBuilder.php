@@ -1,23 +1,23 @@
 <?php
-/**
- * MediaEditCmsBuilder
- *
- * PHP version 5
- *
- * Crowd Fusion
- * Copyright (C) 2009-2011 Crowd Fusion, Inc.
- * http://www.crowdfusion.com/
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are not permitted.
- *
- * @package     CrowdFusion
- * @copyright   2009-2011 Crowd Fusion Inc.
- * @license     http://www.crowdfusion.com/licenses/enterprise CF Enterprise License
- * @version     $Id$
- */
+
 class MediaEditCmsBuilder extends EditCmsBuilder
 {
+    /**
+     * Used when the media library drag/drop functionality drops
+     * an image into the epic editor (markdown).
+     *
+     * @var string
+     */
+    protected $dropImageToMarkdownTemplate;
+
+    /**
+     * @param string $value
+     */
+    public function setMediaLibraryDropImageToMarkdownTemplate($value)
+    {
+        $this->dropImageToMarkdownTemplate = $value;
+    }
+
     protected function _buildWidgetOptions($schemafield,$attributes) {
 
         // Non-file related tag widget defaults to media-quick-add
@@ -76,6 +76,10 @@ class MediaEditCmsBuilder extends EditCmsBuilder
                 $opt[] = "              AllowQuickAdd: true";
             else
                 $opt[] = "              AllowQuickAdd: false";
+        }
+
+        if ($this->dropImageToMarkdownTemplate) {
+            $opt[] = sprintf("              DropImageToMarkdownTemplate: '%s'", $this->dropImageToMarkdownTemplate);
         }
 
         return $opt;
