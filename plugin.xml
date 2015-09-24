@@ -10,7 +10,7 @@
     <description>Replaces crowdfusion-media plugin - Basic building block for media, including support for uploading and managing files
     Media upload and management support for images, documents, video, and audio</description>
     <priority>10</priority>
-    <version>dev-1.7.7</version>
+    <version>1.7.7</version>
     <license>http://www.opensource.org/licenses/bsd-license.php BSD License</license>
     <dependencies/>
     <cfversions>2.1.x</cfversions>
