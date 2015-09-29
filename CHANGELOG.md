@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.7.7
+* issue #5: Added drag-and-drop file support for the md-editor textarea.
+
 
 ## v1.7.6
 * issue #3: Added ability to make images responsive (by adding class to <img> tag).
