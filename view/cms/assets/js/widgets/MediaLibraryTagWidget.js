@@ -194,7 +194,7 @@ MediaLibraryTagWidget.prototype._handlePostInitialize = function() {
       tolerance: 'pointer'
     });
   });
-  $('textarea[id="contents-md"]').each(function(i,e) {
+  $('.md-editor .md-input').each(function(i,e) {
     var editor = $(e);
     var overlay = me._createDropOverlay.apply(me, ['drop to add tag','release to add tag', e.id]);
     overlay.droppable({
