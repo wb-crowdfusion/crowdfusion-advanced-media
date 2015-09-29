@@ -1,4 +1,6 @@
 # CHANGELOG
+## v1.7.8
+* issue #5: Use .md-editor-li textarea to target dropbox for md-editor
 
 ## v1.7.7
 * issue #5: Added drag-and-drop file support for the md-editor textarea.
