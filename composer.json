@@ -3,12 +3,6 @@
   "type": "crowdfusion-plugin",
   "description": "Basic building block for media, including support for uploading and managing files Media upload and management support for images, documents, video, and audio.",
   "license": "Apache-2.0",
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "http://satis.wbdevops.com/"
-    }
-  ],
   "require": {
     "php": ">=5.4",
     "wb-crowdfusion/crowdfusion": "~3.2"

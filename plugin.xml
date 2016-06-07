@@ -1,22 +1,12 @@
-<?xml version="1.0"?>
-<plugin
-  xmlns="http://www.crowdfusion.com/schema/plugin"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.crowdfusion.com/schema/plugin http://www.crowdfusion.com/schema/crowdfusion-plugin-2.0.xsd">
-
+<?xml version='1.0'?>
+<plugin>
   <info>
     <title>Crowd Fusion - Advanced Media</title>
     <provider>Crowd Fusion Inc.</provider>
-    <description>Replaces crowdfusion-media plugin - Basic building block for media, including support for uploading and managing files
-    Media upload and management support for images, documents, video, and audio</description>
+    <description>Replaces crowdfusion-media plugin - Basic building block for media, including support for uploading and managing files Media upload and management support for images, documents, video, and audio</description>
     <priority>10</priority>
-    <version>1.7.8</version>
-    <license>http://www.opensource.org/licenses/bsd-license.php BSD License</license>
-    <dependencies/>
-    <cfversions>2.1.x</cfversions>
-    <homepage>http://crowdfusion.com/</homepage>
+    <version>1.7.9</version>
   </info>
-
   <config>
     <![CDATA[
 
@@ -36,7 +26,11 @@ $properties['media.restricted.extensions'] = array("php", "php5", "phtml");
 
 //IF YOU CHANGE THE CMS THUMBNAIL SIZE THE TAG WIDGET CLASSES NEED TO BE UPDATED
 //IT IS RECOMMENDED THAT THIS VALUE IS NOT CHANGED
-$properties['images.thumbnail.cms.size'] = "150";
+$properties['images.thumbnail.cms.size'] = '150';
+
+$properties['thumbnails.outputQuality'] = 90;
+// interlace options = none, plane, line
+$properties['thumbnails.interlace'] = 'none';
 
 $properties['big.file.chunk.size'] = '1M';
 

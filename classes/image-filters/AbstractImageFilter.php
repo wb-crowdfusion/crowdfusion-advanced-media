@@ -40,6 +40,8 @@ abstract class AbstractImageFilter
     public $outputQuality = null;
     public $outputAlpha = null;
 
+    public $interlace = null;
+
     public $targetFile = null;
 
     protected $anchor = null;
@@ -112,20 +114,40 @@ abstract class AbstractImageFilter
         $this->imageFilterProcessorType = $imageFilterProcessorType;
     }
 
+    /**
+     * Auto-injected filter processor type from pluginconfig.php
+     *
+     * @param int $thumbnailsOutputQuality
+     */
+    public function setThumbnailsOutputQuality($thumbnailsOutputQuality)
+    {
+        $this->outputQuality = (int) $thumbnailsOutputQuality;
+    }
+
+    /**
+     * Auto-injected filter processor type from pluginconfig.php
+     *
+     * @param string $thumbnailsInterlace
+     */
+    public function setThumbnailsInterlace($thumbnailsInterlace)
+    {
+        $this->interlace = $thumbnailsInterlace;
+    }
+
     //////////////////////////////////////////////////////////////////////////
     // public methods
 
-     /**
-      * The worker method that performs the filter operation.
-      *
-      * Note the source file, options and input files are never modified by the
-      * filter, it is up to the caller to delete the files if required.
-      *
-      * @param string $sourceFile The source file to perform the operation on
-      * @param array $options Optional list of filter-specific options
-      * @throws Exception if an error occurs.
-      * @return string The full path of the output file.
-      */
+    /**
+     * The worker method that performs the filter operation.
+     *
+     * Note the source file, options and input files are never modified by the
+     * filter, it is up to the caller to delete the files if required.
+     *
+     * @param string $sourceFile The source file to perform the operation on
+     * @param array $options Optional list of filter-specific options
+     * @throws Exception if an error occurs.
+     * @return string The full path of the output file.
+     */
     public function applyFilter($sourceFile, $options=null)
     {
         $this->sourceFile = $sourceFile;
@@ -136,7 +158,9 @@ abstract class AbstractImageFilter
             // default to jpg type if not set
             $this->outputType = !empty($options['outputType']) ? $options['outputType'] : 'jpg';
             // default to quality 90 if not set
-            $this->outputQuality = !empty($options['outputQuality']) ? (int)$options['outputQuality'] : 90;
+            if (null === $this->outputQuality) {
+                $this->outputQuality = !empty($options['outputQuality']) ? (int)$options['outputQuality'] : 90;
+            }
             // only set alpha if actually specified
             if(array_key_exists('outputAlpha', $options))
                 $this->outputAlpha = empty($options['outputAlpha']) ? false : true;
@@ -262,7 +286,7 @@ abstract class AbstractImageFilter
 
     /**
      * Checks and prepares the image for use.
-     * 
+     *
      * @param  $data  base64 encoded data string
      * @return string file path on disk
      * @throws ImageFilterException

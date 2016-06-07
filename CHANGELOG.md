@@ -1,8 +1,12 @@
 # CHANGELOG
 
 
+## v1.7.9
+* issue #7: Enhancement :: Make ImageQuality a settable parameter.
+
+
 ## v1.7.8
-* bug #5: .md-editor-li textarea to target dropbox for md-editor.
+* issue #5: BUG :: .md-editor-li textarea to target dropbox for md-editor.
 
 
 ## v1.7.7

@@ -49,6 +49,10 @@ class ImagickExecFilterHelper
                 $op .= " -alpha Off";
         }
 
+        if (null !== $filter->interlace) {
+            $op .= " -interlace {$filter->interlace}";
+        }
+
         $op .= " -quality {$filter->outputQuality}";
 
         $inFile = escapeshellarg($filter->sourceFile);
