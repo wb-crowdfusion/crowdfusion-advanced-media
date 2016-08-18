@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.7.10
+* issue #9: Enhancement :: Generate New Nodes via $nodeRef->generateNode();
+
+
 ## v1.7.9
 * issue #7: Enhancement :: Make ImageQuality a settable parameter.
 

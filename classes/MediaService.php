@@ -580,7 +580,7 @@ class MediaService
         {
             $newNodeRef = $this->NodeService->generateUniqueNodeRef($node->getNodeRef(), $node->Title);
         }
-        $newNode = new Node($newNodeRef);
+        $newNode = $newNodeRef->generateNode();
         $newNode->setNodePartials(new NodePartials('all', 'all', 'all'));
         // set the new title
         $newNode->Title = !empty($params['NewTitle']) ? $params['NewTitle'] : $node->Title;
@@ -669,7 +669,7 @@ class MediaService
         }
 
         // create node
-        $node = new Node($nodeRef);
+        $node = $nodeRef->generateNode();
         $this->NodeMapper->defaultsOnNode($node);
 
         //bind posted params to form backing object
@@ -746,7 +746,7 @@ class MediaService
 
 
                                 // create node
-                                $node = new Node($nodeRef);
+                                $node = $nodeRef->generateNode();
                                 $this->NodeMapper->defaultsOnNode($node);
 
                                 if ($node != null) {
@@ -876,7 +876,7 @@ class MediaService
         }
 
         // create node
-        $newNode = new Node($nodeRef);
+        $newNode = $nodeRef->generateNode();
         $this->NodeMapper->defaultsOnNode($newNode);
 
         //bind posted params to form backing object
@@ -1179,7 +1179,7 @@ class MediaService
         $nodeRef = new NodeRef($element);
         $slug = SlugUtils::createSlug($newId);
         $nodeRef = $this->NodeService->generateUniqueNodeRef($nodeRef, $slug);
-        $fileNode = new Node($nodeRef);
+        $fileNode = $nodeRef->generateNode();
 
         // set the new id as title
         $fileNode->Title = $newId;

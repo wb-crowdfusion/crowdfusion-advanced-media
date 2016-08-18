@@ -388,7 +388,7 @@ class MediaCliController extends AbstractCliController
 
                     $nodeRef = $this->NodeRefService->oneFromAspect('@images');
                     $nodeRef = $this->NodeRefService->generateNodeRef($nodeRef,$fname);
-                    $node = new Node($nodeRef);
+                    $node = $nodeRef->generateNode();
 
                     $node->Title = $fname;
                     $node->Status = "published";
@@ -427,7 +427,7 @@ class MediaCliController extends AbstractCliController
 
                 $nodeRef = $this->NodeRefService->oneFromAspect('@images');
                 $nodeRef = $this->NodeRefService->generateNodeRef($nodeRef,$slug);
-                $node = new Node($nodeRef);
+                $node = $nodeRef->generateNode();
 
                 if (!$this->NodeService->refExists($node->getNodeRef())) {
                     // go fetch file from url

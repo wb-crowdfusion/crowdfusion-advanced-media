@@ -115,7 +115,7 @@ class FileService
         $nodeRef = new NodeRef($element, SlugUtils::createSlug($file->getId()));
         $nodeRef =  $this->NodeService->generateUniqueNodeRef($nodeRef, null, true);
 
-        $node = new Node($nodeRef);
+        $node = $nodeRef->generateNode();
         $this->NodeMapper->defaultsOnNode($node);
 
         $node->Title = $file->getId();

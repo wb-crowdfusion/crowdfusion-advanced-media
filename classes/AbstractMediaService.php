@@ -173,10 +173,13 @@ abstract class AbstractMediaService
 
     public function replaceMediaFromURL($url, $title = null, $nodeRefString = null)
     {
-        if(is_null($nodeRefString))
-            $media = new Node($this->NodeRefService->generateNodeRef($this->NodeRefService->oneFromAspect($this->getMediaAspect()), $title));
-        else
-            $media = new Node($this->NodeRefService->generateNodeRef($this->NodeRefService->parseFromString($nodeRefString), $title));
+        if(is_null($nodeRefString)) {
+            $mediaNodeRef = $this->NodeRefService->generateNodeRef($this->NodeRefService->oneFromAspect($this->getMediaAspect()), $title);
+            $media = $mediaNodeRef->generateNode();
+        } else {
+            $mediaNodeRef = $this->NodeRefService->generateNodeRef($this->NodeRefService->parseFromString($nodeRefString), $title);
+            $media = $mediaNodeRef->generateNode();
+        }
 
         if (!$this->NodeService->refExists($media->getNodeRef())) {
 
