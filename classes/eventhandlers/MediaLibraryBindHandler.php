@@ -29,7 +29,7 @@ class MediaLibraryBindHandler {
     // HANDLER ACTIONS //
     /////////////////////
 
-    public function loadMediaTagsCms($nothing, $nothing, Node $node)
+    public function loadMediaTagsCms($param1, $param2, Node $node)
     {
         return;
         if($node->getNodePartials()->getOutPartials() != "")

@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.7.11
+* Renamed duplicate parameter in function
+
+
 ## v1.7.10
 * issue #9: Enhancement :: Generate New Nodes via $nodeRef->generateNode();
 

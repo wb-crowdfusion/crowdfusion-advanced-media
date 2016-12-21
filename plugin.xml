@@ -5,7 +5,7 @@
     <provider>Crowd Fusion Inc.</provider>
     <description>Replaces crowdfusion-media plugin - Basic building block for media, including support for uploading and managing files Media upload and management support for images, documents, video, and audio</description>
     <priority>10</priority>
-    <version>1.7.10</version>
+    <version>1.7.11</version>
   </info>
 
   <config>
